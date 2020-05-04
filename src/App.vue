@@ -1,23 +1,31 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <Home  v-if="$store.getters.getUser!=null"></Home>
+    <Public v-else></Public>
   </div>
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
-</script>
+import Home from "@/page/Home";
+import Public from "@/page/First";
 
+export default {
+  name: "App",
+  data(){
+    return{
+     user:{}
+    }
+  },
+  components: {
+   Home,
+   Public,
+  },
+  method:{
+    
+  }
+};
+</script>
+ 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
