@@ -3,7 +3,7 @@
     <div style="width:200px;float:left;margin-left:100px; ">
       <el-menu style="width:200px;" default-active="2" class="el-menu-vertical-demo" collapse
       >
-      <el-submenu index="1">
+      <!-- <el-submenu index="1">
         <template slot="title">
           <i>导航一</i>
         </template>
@@ -31,7 +31,7 @@
       </el-menu-item>
       <el-menu-item index="4">
         <i>导航五</i>
-      </el-menu-item>
+      </el-menu-item> -->
     </el-menu>
     </div>
     <div style="width:850px;float:right;margin-right:100px;">
@@ -59,15 +59,12 @@
   <h4 style="color:#409EFF;">为你推荐</h4>
   <div class="items">
        <div class="left">
-      <h3> <a href="#">月月领·加薪年金(15年)</a> </h3>
-      <p class="p1">100%返还已交保费</p>
-      <p class="p2"> <span class="amount">48-51</span> <span>%</span> </p>
-      <p class="p3">每月领取月交金额比例</p>
-      <p class="p4">100%返还已交保费</p>
-      <a class="btn" href="#"> 立即抢购 </a> </div>
+       <a href="#" v-for="(adv,index) in advertise" :key="index">
+        <img style="width:290px; height:290px;" v-if="adv.image=='2.jpg'" :src="host+'img/'+adv.image" />
+      </a> </div>
     <div class="right">
       <div class="Scroll-left">
-        <div class="hd"> <a class="next"><</a> <a class="prev">></a> </div>
+        <div class="hd"> <a class="next">《</a> <a class="prev">》</a> </div>
         <div class="bd">
           <ul class="picList">
             <li v-for="(product,index) in allproducts" :key="index">
@@ -175,7 +172,8 @@ export default {
       //商品列表
       allproducts: [],
       //广告发布
-      advertise:[]
+      advertise:[],
+      typeMenus:[]
     };
   },
   computed:{
@@ -185,6 +183,16 @@ export default {
   },
   components: {},
   methods: {
+    //类型查询列表
+    findType(){
+      let url="findType";
+       this.$http.post(url).then(response=>{
+        this.typeMenus=response.data.list;
+        console.log(response.data.success);
+      }).catch(ex=>{
+        console.log(ex);
+      });
+    },
     //查询广告
     findAdv(){
       let url="findAdvAll";
@@ -192,7 +200,7 @@ export default {
         this.advertise=response.data;
         console.log(this.advertise);
       }).catch(ex=>{
-
+        console.log(ex);
       });
     },
     //查询发布的商品
@@ -205,7 +213,7 @@ export default {
         this.allproducts=response.data;
          console.log("发布的商品"+this.allproducts);
       }).catch(ex=>{
-
+        console.log(ex);
       });
     },
     shelfRecommend: function() {
@@ -214,13 +222,13 @@ export default {
         return $(this).length;
       };
       $(".Scroll-left").slide({
-        titCell: ".hd ul",
-        mainCell: ".bd ul",
-        autoPage: true,
-        effect: "leftLoop",
-        autoPlay: true,
-        vis:3,
-        pnLoop: false
+       titCell:".hd ul",
+       mainCell:".bd ul",
+       autoPage:true,
+       effect:"leftLoop",
+       autoPlay:true,
+      vis:3, 
+       pnLoop:false
       });
     }
   },
