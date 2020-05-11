@@ -20,12 +20,15 @@
             <tr>
               <td>商品原价:</td>
               <td >{{Commodity.price}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                折扣价:{{Commodity.zhekoujia}}</td>
-              
+                折扣价:{{Commodity.zhekoujia}}</td>            
             </tr>
             <tr>
               <td>商品详细:</td>
               <td>{{Commodity.introduce}}</td>
+            </tr>
+            <tr>
+              <td>商品:</td>
+              <td> <el-input-number v-model="count" @change="handleChange" :min="1" :max="10" label="描述文字"></el-input-number></td>
             </tr>
           </table>
         </div>
@@ -48,7 +51,8 @@ export default {
   name: "",
   data() {
     return {
-      Commodity: {}
+      Commodity: {},
+      count:1,
     };
   },
   components: {},

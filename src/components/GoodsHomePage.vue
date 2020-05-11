@@ -3,6 +3,7 @@
     <el-container>
       <el-header>头部</el-header>
       <el-main>
+       
         <div style=" width:80%; margin: auto;">
           <el-row>
             <el-col :span="6" :offset="9">
@@ -22,23 +23,21 @@
             </el-col>
           </el-row>
           <br />
-
+ 
           <div
-            style="width:290px;margin:10px auto;height:400px;float:left;margin: auto;"
-            v-for="shangpin in this.pageinfo.list"
-            :key="shangpin.id"
+          class="div5"
+            v-for="(shangpin,index) in this.pageinfo.list"
+            :key="index"
           >
             <table width="100%" border="0" align="center" style="margin: auto;">
               <tr>
-                <td align="center">
-                  <a  @click="tiaozhuan(shangpin.id)" href="#" >
-                    <img  src="@/assets/3.jpg" width="170" height="200" border="0"  />
-                  </a>
+                <td align="center">           
+                    <img  src="@/assets/3.jpg" width="170" @click="xiangxi(shangpin.id)" height="200" border="0"  />  
                 </td>
               </tr>
               <tr>
-                <td align="center">                
-                  <a  @click="tiaozhuan(shangpin.id)" href="#" >{{shangpin.commodityName}}</a>
+                <td align="center">           
+                  <a  @click="xiangxi(shangpin.id)" href="#" >{{shangpin.commodityName}}</a>
                 </td>
               </tr>
 
@@ -52,11 +51,12 @@
               </tr>
               <tr>
                 <td align="center">
-                  <el-button type="danger">添加到购物车</el-button>
+                  <el-button type="danger" @click="tianjia(shangpin)">添加到购物车</el-button>
                 </td>
               </tr>
-            </table>
-          </div>
+            </table>      
+       </div>
+        <div style="clear:both"></div>
           <el-row>
             <el-col :span="16" :offset="6">
               <el-pagination
@@ -94,6 +94,11 @@ export default {
     this.findPage();
   },
   methods: {
+     //跳转到详情vue 
+    xiangxi(val){
+      this.$store.dispatch("change","GoodInDetail");
+       this.$store.dispatch("cunid",val);
+    },
     //修改每页显示数量
     handleSizeChange(val) {
       this.findPage(this.pageinfo.pageNum, val);
@@ -132,11 +137,7 @@ export default {
         })
         .catch(ex => {});
     },
-    /*跳转到详情vue */
-    tiaozhuan(val){
-      this.$store.dispatch("change","GoodInDetail");
-       this.$store.dispatch("cunid",val);
-    },
+   
     fenleichaxun(val){
       let url = "/shangpin/findpage?id="+val;
       this.$http
@@ -146,7 +147,9 @@ export default {
         })
         .catch(ex => {});
     },
-    
+    tianjia(shangpin){
+      
+    }
   }
 };
 </script>
@@ -157,5 +160,8 @@ export default {
 }
 a{
   text-decoration:none;
+}
+.div5{
+width:290px;margin:10px auto;height:400px;margin: auto;float: left;
 }
 </style>

@@ -6,6 +6,7 @@ export default new Vuex.Store({
     state: {
        app_view:"GoodsHomePage",
        shangpingid:"",
+       shangpinList:[],
     },
     getters:{
        getApp_view(state){
@@ -22,6 +23,9 @@ export default new Vuex.Store({
       setshangpinid(state,val){
          state.shangpingid=val
         },
+        setshangpinList(state,val){
+          state.shangpinList.push(val);
+        }
     },
     actions:{
        change({commit},val){
