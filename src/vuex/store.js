@@ -2,11 +2,12 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 
+
 export default new Vuex.Store({
     state: {
        app_view:"GoodsHomePage",
        shangpingid:"",
-       shangpinList:[],
+       shangpinList: JSON.parse(window.sessionStorage.getItem("session_list"))||[],
     },
     getters:{
        getApp_view(state){
@@ -14,6 +15,9 @@ export default new Vuex.Store({
        },
         getShangpinid(state){
          return state.shangpingid;
+        },
+        getShangpinList(state){
+         return state.shangpinList;
         }
     },
     mutations:{
@@ -24,7 +28,8 @@ export default new Vuex.Store({
          state.shangpingid=val
         },
         setshangpinList(state,val){
-          state.shangpinList.push(val);
+          state.shangpinList.push(val);           
+          window.sessionStorage.setItem("session_list",JSON.stringify(state.shangpinList));            
         }
     },
     actions:{
@@ -33,6 +38,10 @@ export default new Vuex.Store({
        },
        cunid({commit},val){
          commit("setshangpinid",val);
+       },
+       shuzu({commit},val){
+        commit("setshangpinList",val);   
+
        }
     }
 });
