@@ -1,5 +1,5 @@
 <template>
-  <div id="app">  
+  <div id="app">
      <component :is="$store.getters.getApp_view"></component>
   </div>
 </template>
@@ -12,6 +12,7 @@ export default {
   components:{
     GoodsHomePage,
     GoodInDetail,
+    ss
   }
 }
 </script>
