@@ -11,8 +11,7 @@ export default {
   name: 'App',
   components:{
     GoodsHomePage,
-    GoodInDetail,
-    ss
+    GoodInDetail
   }
 }
 </script>
