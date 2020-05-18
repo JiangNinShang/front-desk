@@ -3,7 +3,6 @@
     <el-container>
       <el-header>头部</el-header>
       <el-main>
-        {{$store.getters.getShangpinList}}
         <div style=" width:80%; margin: auto;">
           <el-row>
             <el-col :span="6" :offset="9">

@@ -12,7 +12,6 @@ export default {
   components:{
     GoodsHomePage,
     GoodInDetail,
-    ss
   }
 }
 </script>
