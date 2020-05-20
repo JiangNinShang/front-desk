@@ -6,14 +6,13 @@ import ElementUI from 'element-ui'
 import axios from 'axios'
 import 'element-ui/lib/theme-chalk/index.css'
 import {
-  pcaa
+	pcaa
 } from 'area-data-vue';
 import 'area-linkage-vue/dist/index.css';
 import AreaLinkageVue from 'area-linkage-vue';
 Vue.prototype.axios = axios
 Vue.prototype.$http = axios
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-// axios.defaults.headers.post['Content-Type'] ='Content-Type": "application/json; charset=UTF-8'
 Vue.prototype.$http.defaults.baseURL = 'http://localhost:8090/'
 Vue.prototype.$pcaa = pcaa;
 
@@ -23,7 +22,7 @@ Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
-  store,
-  router,
-  render: h => h(App)
+	store,
+	router,
+	render: h => h(App)
 }).$mount('#app')
