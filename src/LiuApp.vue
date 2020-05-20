@@ -7,12 +7,12 @@
 <script>
 import GoodsHomePage from './components/GoodsHomePage'
 import GoodInDetail from './components/GoodsInDetail'
+
 export default {
   name: 'App',
   components:{
     GoodsHomePage,
     GoodInDetail,
-
   }
 }
 </script>
@@ -20,7 +20,7 @@ export default {
 
 <style>
   .el-header, .el-footer {
-    background-color:turquoise;
+
     color: #333;
     text-align: center;
     line-height: 60px;

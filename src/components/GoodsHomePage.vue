@@ -1,7 +1,7 @@
 <template>
   <div class>
     <el-container>
-      <el-header>头部</el-header>
+      <el-header><head></head></el-header>
       <el-main>
         <div style=" width:80%; margin: auto;">
           <el-row>
@@ -62,12 +62,14 @@
           </el-row>
         </div>
       </el-main>
-      <el-footer>尾部</el-footer>
+      <el-footer><footer></footer></el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
+import head from './Head'
+import footer from './Footer'
 export default {
   name: "",
   data() {
@@ -78,7 +80,10 @@ export default {
       TBcommodityType: ""
     };
   },
-  components: {},
+  components: {
+    head,
+    footer,
+  },
   mounted() {
     this.findType();
     this.findPage();

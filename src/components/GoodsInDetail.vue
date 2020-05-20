@@ -1,7 +1,8 @@
 <template>
   <el-container>
-    <el-header class>Header</el-header>
+    <el-header class></el-header>
     <el-main>
+      <head></head>
       <a href="#" @click="fanhuishangyibo">返回上一步</a>
       <el-row>
         <el-col :span="6" :offset="5">
@@ -65,11 +66,13 @@
         </el-row>
       </div>
     </el-main>
-    <el-footer>Footer</el-footer>
+    <el-footer><footer></footer></el-footer>
   </el-container>
 </template>
 
 <script>
+import head from './Head'
+import footer from './Footer'
 export default {
   name: "",
   data() {
@@ -79,7 +82,10 @@ export default {
       kuanshi: []
     };
   },
-  components: {},
+  components: {
+    head,
+    footer
+  },
   methods: {
     //添加到vuex的数组
     tianjia() {
