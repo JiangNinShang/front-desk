@@ -1,8 +1,11 @@
 <template>
-  <div class>
+  <div >
     <el-container>
-      <el-header><head></head></el-header>
-      <el-main>
+      <el-header><Head></Head></el-header>
+          <br>
+          <br>
+          <br>
+          <br>
         <div style=" width:80%; margin: auto;">
           <el-row>
             <el-col :span="6" :offset="9">
@@ -61,17 +64,16 @@
             </el-col>
           </el-row>
         </div>
-      </el-main>
-      <el-footer><footer></footer></el-footer>
+      <el-footer><Footer></Footer></el-footer>
     </el-container>
   </div>
 </template>
 
 <script>
-import head from './Head'
-import footer from './Footer'
+import Head from './Head'
+import Footer from './Footer'
+
 export default {
-  name: "",
   data() {
     return {
       sousuo: "",
@@ -81,8 +83,8 @@ export default {
     };
   },
   components: {
-    head,
-    footer,
+    Head,
+    Footer
   },
   mounted() {
     this.findType();

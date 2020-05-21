@@ -1,8 +1,7 @@
 <template>
   <el-container>
-    <el-header class></el-header>
-    <el-main>
-      <head></head>
+    <el-header class><Head></Head></el-header>
+    <br><br><br>
       <a href="#" @click="fanhuishangyibo">返回上一步</a>
       <el-row>
         <el-col :span="6" :offset="5">
@@ -38,7 +37,7 @@
               <el-row :gutter="20">
                 <el-col span="4" v-for="kuan in this.kuanshi" :key="kuan.id">
                   <el-button class="btn" @click="vv(kuan.id)">
-                    <img src="@/assets/3.jpg" style="width:50px;height:50px" />
+                    <img :src="kuan.designImage" style="width:50px;height:50px" />
                   </el-button>
                 </el-col>
               </el-row>
@@ -65,26 +64,26 @@
           </el-col>
         </el-row>
       </div>
-    </el-main>
-    <el-footer><footer></footer></el-footer>
+    <el-footer><Footer></Footer></el-footer>
   </el-container>
 </template>
 
 <script>
-import head from './Head'
-import footer from './Footer'
+
+import Head from './Head'
+import Footer from './Footer'
+
 export default {
-  name: "",
   data() {
     return {
       Commodity: {},
       count: 1,
-      kuanshi: []
+      kuanshi: [],
     };
   },
   components: {
-    head,
-    footer
+    Head,
+    Footer
   },
   methods: {
     //添加到vuex的数组
@@ -138,7 +137,7 @@ export default {
   width: 100px;
   position: relative;
   left: 750px;
-  bottom: 110px;
+  bottom: 170px;
 }
 .div2 {
   width: 20px;
